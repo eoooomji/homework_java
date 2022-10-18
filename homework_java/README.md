@@ -487,3 +487,76 @@
                 4) 접근제어자(제한자)는 부모클래스의 메서드와 같거나 더 넓은 범위여야 한다.
                    private < default < protected < public
 		
+---
+
+### 오브젝트(Object) & 문자열(String)
+
+- 클래스 중에서 최상위 클래스
+
+- Object를 제외한 모든 클래스들은 Object를 상속받고 있다.
+
+- java.lang패키지에서 제공하는 클래스이다.
+
+                - equlas() : 주소비교(객체비교만 가능하다.), 대소문자를 비교한다.
+		- equalsIgnoeCase() : 주소비교, 대소문자 비교를 안한다.
+		- hashCode() : 메모리값
+		- length() : 문자열 길이
+		- toUpperCase() : 대문자로 리턴
+		- toLowerCase() : 소문자로 리턴
+		- charAt() : 위치한 인덱스의 문자열 리턴
+		- indexOf() : 위치한 인덱스값 리턴
+		- lastIndexOf() : 뒤에서 부터 위치한 인덱스값 리턴
+		- subString(5) : 작성한 문자열 값부터 리턴
+		- subString(5,10) : 5부터 10미만의 문자열 리턴
+		- split("a") : 메모리에 저장된 문자열을 "a"로 구분해서 문자열 배열로 리턴
+		- String.valueOf() : 기본데이터 타입을 전부 String으로 호출이 가능하게끔 리턴
+		- toCharArray() : 문자열을 문자(캐릭터)배열로 바꿔주어 리턴
+
+--- 
+
+### 정규화 표현식 RegEx (Regular Expression)
+
+- 텍스트 데이터 중에서 원하는 조건(패턴)과 일치하는 문자열을 찾아내기 위해 사용하는 것
+
+- 미리 정의된 기호와 문자를 이용해서 작성한 문자열을 뜻함
+
+                - . : 임의의 문자 1개를 의미
+		- * : 0개 이상의 문자를 의미함(여러개)
+		- .* : '임의의 문자 여러개' 라는 의미
+		- [] : 대괄호 없이 사용시 맨 앞글자와 맨 뒤 글자를 의미한다. or이라는 뜻을 지님
+		- { } : 문자열의 인덱스 값
+		- matches() 
+		  : 일치하는 문자열이 있으면 ture or false 리턴
+		  : matches는 boolean을 의미한다.
+		- replaceAll( , ) 
+		  : 대상 문자열을 원하는 문자 값으로 변환하는 함수. 
+		  : 첫번째 매개변수는 변환하고자 하는 대상이 될 문자열
+	          : 두번째 매개변수는 변환할 문자 값
+		- \s : 공백. (문자열로 인식시키기 위해 역슬래시를 2개 적어준다. \\s)
+		- \d : 숫자를 의미. \D : 숫자가 아닌 부정의 의미
+		- \w : 숫자와 영어를 의미 [a-zA-Z_0-9]
+		
+		
+ 		- Pattern.matcher() : 빠르게 어떠한 text(String)이 주어진 Pattern에 있는지를 확인한다.
+ 		- Pattern.compile(): 여러개의 텍스트를 재사용 가능한 Pattern인스턴스로 컴파일 한다.
+ 		- find() : 최초의 패턴 위치로 이동한 뒤 True 반환, 없으면 false 
+ 		- find(int start) : start 위치 부터 find 
+ 		- start() : 매칭되는 패턴의 시작 인덱스 반환 
+ 		- start(int group) : group이 매칭되는 시작 인덱스 반환
+ 		- end() : 매칭된 패턴 한칸 뒤 인덱스 반환 
+ 		- end(int group) : 지정되 그룹이 매칭되는 한칸 뒤 인덱스 반환 
+ 		- group() : 최초로 그룹 매칭된 패턴을 반환 
+		- group(int group) : 그룹 매칭된 부분중 group번째 패턴을 반환 
+ 		- groupCount() : 패턴내 그룹핑(괄호로 묶은 패턴들)의 갯수 반환
+ 		- matches() : 패턴이 전체 문자열과 일치하면 True
+ 
+		- Parttern 플래그 값 사용(상수)
+		- Pattern.CANON_EQ : None표준화된 매칭 모드를 활성화합니다.
+		- Pattern.CASE_INSENSITIVE : 대소문자를 구분하지 않습니다. 
+		- Pattern.COMMENTS : 공백과 #으로 시작하는 주석이 무시됩니다. (라인의 끝까지).
+		- Pattern.MULTILINE : 수식 '^' 는 라인의 시작과, '$' 는 라인의 끝과 match 됩니다.
+		- Pattern.DOTALL : 수식 '.'과 모든 문자와 match 되고 '\n' 도 match 에 포함됩니다.
+		- Pattern.UNICODE_CASE : 유니코드를 기준으로 대소문자 구분 없이 match 시킵니다.
+		- Pattert.UNIX_LINES : 수식 '.' 과 '^' 및 '$'의 match시에 한 라인의 끝을 의미하는 '\n'만 인식됩니다.
+
+		
