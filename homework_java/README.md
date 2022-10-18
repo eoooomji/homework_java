@@ -207,80 +207,142 @@
 	  	  - int[][][] num = new int[3][][];
 		  
 ---
+## Class
 
-### Method (메서드)
+### 1.Method (메서드)
 
 - 값을 계산하기 위해서 사용되는 기능이다.
+
 - 객체의 동작을 처리하기 위한 기능이다.
+
 - 프로그램을 실행하면 JVM(자바가상머신 - java Virtual Machine)에서 main스레드가 main()메서드를 호출한다.
+
 - JVM은 운영체제에 특화된 코드로 변환하여 실행한다. 즉, 자바프로그램 실행환경을 만들어 주는 소프트웨어이다.
 	
-			0. Method 메서드 선언
-	
+			- Method 메서드 선언
 			  method 정의 : 선언부 + 구현부
- 			  반환자료형 메소드명(데이터타입 매개변수) => 메소드 선언부
-  			  void    main (String[] args) 
-  			  {
-   			  메소드가 호출 되었을 때 실행 구문;   => 메소드 구현부
-   			  return 값;                             
-  			  }
+ 	  		  반환자료형 메소드명(데이터타입 매개변수) => 메소드 선언부
+  	  		  void    main (String[] args) 
+  	  		  {
+   	  		  메소드가 호출 되었을 때 실행 구문;   => 메소드 구현부
+   	  	          return 값;                             
+  	  	   	  }
 	  
-			  - 매개변수 = parameter
-			  - 인수 = argument
-			  - void : return되는 타입이 없음을 의미한다.
+	  		- 매개변수 = parameter
+	  		- 인수 = argument
+	  		- void : return되는 타입이 없음을 의미한다.
 	  
-			  - JVM 자바 가상 머신 메모리 구조
-			    : Method Area(클래스, 상수, 변수, 메소드코드, 생성자코드)
-			    : Stack Area
-			    : Heap Area : 참조 데이터 타입의 저장 공간
+	  		- JVM 자바 가상 머신 메모리 구조
+	    		  : Method Area(클래스, 상수, 변수, 메소드코드, 생성자코드)
+	    	  	  : Stack Area
+	    	   	  : Heap Area : 참조 데이터 타입의 저장 공간
 	  
-			1. 리턴값이 없고 매개변수도 없는 형태
- 			   void add(){
- 			     int x = 10;
- 			     int y = 20;
-              	     	   if(x<0)
- 	       		   return; // 메소드를 강제적으로 빠져 나와라
- 	     		   System.out.println(x+y);
- 	   		   }
- 	 	           add();
+	 		- 리턴값이 없고 매개변수도 없는 형태
+ 	   		  void add(){
+ 	     		    int x = 10;
+ 	     	 	    int y = 20;
+ 	     	 	    if(x<0)
+ 	       		    return; // 메소드를 강제적으로 빠져 나와라
+ 	     		  System.out.println(x+y);
+ 	   		  }
+ 	   		  add();
   
- 			 2. 리턴값은 있고 매개변수는 없는 형태
+ 	 		- 리턴값은 있고 매개변수는 없는 형태
  	   		  double avg(){
  	     		    int x = 10;
  	     		    int y = 20;
  	     		    return (x+y)/2; // int값을 출력하지만 casting으로 인해 double값으로 바뀌어 출력 or return (x+y)/2.0;
  	   		  }
  	   
-  	 		3. 리턴값이 없고 매개변수는 있는 형태
+  	 		- 리턴값이 없고 매개변수는 있는 형태
  	   		  void plus(int x, int y){
  	     		    System.out.println(x+y);
- 	   		  }
- 	   	          plus(10, 20);
+ 	   	  	  }
+ 	   		  plus(10, 20);	
   
- 	 		4. 리턴값이 있고 매개변수도 있는 형태
+ 	 		- 리턴값이 있고 매개변수도 있는 형태
  	   		  double avg(int x, int y){
- 	     	  	    return (x+y)/2.0;
- 	   		  }
- 	   	  	  avg(10, 20);
+ 	     		    return (x+y)/2.0;
+ 	   	 	  }
+ 	   		  avg(10, 20);
 	   
-	 		5. 자바에서 제공하는 데이터 타입(data type)
+	 		- 자바에서 제공하는 데이터 타입(data type)
  	   		  - primitive data type : byte, short, int, long, float, double, boolean, char
   	   		  - reference data type : array, class, interface, enum
  	
- 	   [argument 전달방식]
-	     (1). call by value : 값에 의한 복사
-  	  	argument를 전달할때 primitive data type을 넘겨주는 형식
-  	  	- 장점 : 복사하여 처리하기 때문에 원래 값이 보존이 되어 안전하다.
-  	  	- 단점 : 복사를 하기 때문에 메모리 사용량이 늘어난다.
+ 	   			[argument 전달방식]
+	     		  	(1). call by value : 값에 의한 복사
+  	  		       	     argument를 전달할때 primitive data type을 넘겨주는 형식
+  	  		       	     - 장점 : 복사하여 처리하기 때문에 원래 값이 보존이 되어 안전하다.
+  	  		       	     - 단점 : 복사를 하기 때문에 메모리 사용량이 늘어난다.
   
-  	     (2) call by reference : 주소에 의한 복사
-     		argument를 전달할때 reference data type을 넘겨주는 형식
-		- 장점 : 참조를 하기 때문에 메모리를 절약한다.
-                - 단점 : 참조를 하기 때문에 원래 값에 영향을 받는다.
+  	     		  	(2) call by reference : 주소에 의한 복사
+     			      	    argument를 전달할때 reference data type을 넘겨주는 형식
+			      	    - 장점 : 참조를 하기 때문에 메모리를 절약한다.
+                	      	    - 단점 : 참조를 하기 때문에 원래 값에 영향을 받는다.
+		
+	 		- 배열 형식
+	   	 	   - class에서 같은 그룹으로 배열을 형성할 때 작성방식이 있다.
+	     		     생성자 매개변수 = new 생성자[배열갯수];
+	     	 	     매개변수[0] = new 생성자(값);
+	     		     매개변수[1] = new 생성자(값); ...
 
 ---
 
-### Modifier & Access Modifier (제어자 & 접근제어자)
+### 2. 오버로딩(overloading)
+
+- 단일 클래스에서 같은 이름의 메소드를 여러개 정의하는 기능이다.
+
+- 오버로딩의 조건
+  (1). 메서드의 이름이 같아야 한다.
+  (2). 매개변수의 갯수 또는 데이터 타입이 달라야 한다.
+  (3). 리턴타입은 오버로딩을 구분하는데 사용되지 않는다.
+  
+--- 
+
+### 3. Spread Operator(...)
+
+- jdk5이전 버전에서는 특정 메소드를 정의할 때 인자와 매개변수의 갯수 및 타입의 수를 정해놓고 호출할 떄 일치하지 않으면 오류가 발생하였다.
+
+- 이를 유연하게 처리할 수 있도록 variable argument 기능을 제공해주고 있다.
+
+- 리턴타입 메소드명(데이터타입... 가변매개변수) { }
+
+- 고정매개변수와 가변매개변수가 같이 사용될때는 언제나 고정매개변수를 먼저 선언한다.
+  void example(String name, int... arr) { } (이와같이 작성한다.)
+
+---
+
+### 4. 개선된 for문
+
+- JavaScript에서 제공되는 for~in문과 for~of문과 동작 원리가 같은 방식으로 배열의 갯수를 나타낼 수 있다.
+
+- 개선된 for문 = 개선된 루프 = 확장된 루프
+
+	          - 작성방식
+ 		    :  for(int element : 배열 or 컬렉션) {
+  	 	       수행할 문장;
+  		       } 
+ 
+---
+ 
+## Static access
+ 
+### 1. Static
+ 
+- class loader일 때 method area에 저장이 된다.
+ 
+- 같은 클래스로 생성된 객체끼리 공유해서 사용한다.
+
+- static키워드가 선언된 메소드에서 this, super키워드를 사용할 수 없다.
+  
+- 즉, static으로 멤버변수 및 클래스, 메서드 작성시 Method area에 생성이 되기 때문에
+
+- non-static 메서드에서 static 메서드 호출이 가능하다.
+
+---
+
+### 2. Modifier & Access Modifier (제어자 & 접근제어자)
 
 - package
   1. 비슷한 작업을 수행하는 클래스 및 인터페이스를 묶어서 사용한다.
@@ -332,7 +394,7 @@
 
 ---
 
-### 싱글톤 패턴(singleton pattern)
+### 3. 싱글톤 패턴(singleton pattern)
 
 - 같은 형태의 객체를 생성할 때 사용한다.
  
@@ -355,7 +417,7 @@
 		     
 ---
 
-### 캡슐화(encapsulation)
+### 4. 캡슐화(encapsulation)
 
 - 추상화를 통해 정리된 데이터들과 기능을 하나로 묶어 관리하는 기법
 
@@ -384,7 +446,7 @@
 		     
 ---
 
-### 상속(inheritance)
+### 5. 상속(inheritance)
 
 - 기본 클래스가 가지고 있는 멤버들을 새로 만든 클래스에서 직접 만들지 않고 상속을 받음으로써 새 클래스가 자신의 멤버처럼 사용할 수 있게 만든다.
 
@@ -414,7 +476,7 @@
 	    
 ---
 
-### 오버라이딩(overriding)
+### 6. 오버라이딩(overriding)
 
 - 조상클래스의 메서드를 자식(손)클래스에서 재정의(메서드 구현부)하는 기능이다.
 
